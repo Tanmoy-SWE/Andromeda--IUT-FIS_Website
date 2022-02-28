@@ -19,4 +19,5 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('FISApp.urls')),
+    path('social/', include('Media_Functionalities.urls')),
 ]

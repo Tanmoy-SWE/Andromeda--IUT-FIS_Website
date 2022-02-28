@@ -11,7 +11,8 @@ def astroPhotoOftheDay(request):
     k = "523p5hPYHGzafYGLCkqa54kKMTV2vbP0XcPxkcLm"
     nasa = nasapy.Nasa(key = k)
     #Get today's date in YYYY-MM-DD format:
-    d = datetime.today().strftime('%Y-%m-%d')
+    d = datetime.today() - timedelta(days=1)
+    d.strftime('%Y-%m-%d')
     #Get the image data:
     apod = nasa.picture_of_the_day(date=d, hd=True)
     # POINT A:
@@ -52,7 +53,7 @@ def astroPhotoOfYesterday(request):
     k = "523p5hPYHGzafYGLCkqa54kKMTV2vbP0XcPxkcLm"
     nasa = nasapy.Nasa(key = k)
     #Get today's date in YYYY-MM-DD format:
-    d = datetime.today() - timedelta(days=1)
+    d = datetime.today() - timedelta(days=2)
     d.strftime('%Y-%m-%d')
     #Get the image data:
     apod = nasa.picture_of_the_day(date=d, hd=True)

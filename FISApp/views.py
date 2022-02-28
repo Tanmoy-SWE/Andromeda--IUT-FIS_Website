@@ -6,9 +6,7 @@ from django.contrib.auth import authenticate, login, logout
 
 
 # Create your views here.
-
 def home(request):
-    #context = {'first_name' : first_name[0]}
     return render(request, 'home.html')
 
 def registerPage(request):
@@ -39,3 +37,6 @@ def loginPage(request):
 def logoutUser(request):
     logout(request)
     return redirect('login')
+
+# def solarsystem(request):
+#     return redirect('index')

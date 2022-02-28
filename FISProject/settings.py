@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     #own
     'FISApp.apps.FisappConfig',
+    'Media_Functionalities',
     'crispy_forms',
 ]
 

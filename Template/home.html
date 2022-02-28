@@ -18,6 +18,7 @@
          <h3 id="hello-msg"> Hello {{request.user}} </h3>
          <h4> You are successfully logged in.</h4>
          <button type="submit"> <a href="/logout">SignOut</a></button>
+         <button type="submit"> <a href="/social">News Feed</a></button>
          <button type="submit"> <a href="/ISSLocation">ISS Current Location</a></button>
          <button type="submit"> <a href="/astroPhotoDay">Astronomy Photo of the day</a></button>
          <button type="submit"> <a href="/astroPhotoYesterday">Astronomy Photo of Yesterday</a></button>
@@ -25,6 +26,7 @@
     {%else%}
         <button type="submit"> <a href="/register">SignUp</a></button>
         <button type="submit"> <a href="/login">SignIn</a></button>
+        <button type="submit"> <a href="/social">News Feed</a></button>
         <button type="submit"> <a href="/ISSLocation">ISS Current Location</a></button>
         <button type="submit"> <a href="/astroPhotoDay">Astronomy Photo of the day</a></button>
         <button type="submit"> <a href="/astroPhotoYesterday">Astronomy Photo of Yesterday</a></button>
