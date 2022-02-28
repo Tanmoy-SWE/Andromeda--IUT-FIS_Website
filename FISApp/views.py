@@ -39,4 +39,4 @@ def logoutUser(request):
     return redirect('login')
 
 def solarsystem(request):
-    return render(request, 'hello.html')
+    return render(request, 'index.html')
