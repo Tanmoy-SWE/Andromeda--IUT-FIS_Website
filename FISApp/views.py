@@ -38,5 +38,5 @@ def logoutUser(request):
     logout(request)
     return redirect('login')
 
-# def solarsystem(request):
-#     return redirect('index')
+def solarsystem(request):
+    return render(request, 'hello.html')
