@@ -1,7 +1,7 @@
+{% extends 'social/base.html' %}
 {% load crispy_forms_tags %}
 
 {% block content %}
-    {% if user.is_authenticated %}
     <div class="container">
         <div class="row justify-content-center mt-3">
             <div class="col-md-5 col-sm-12">
@@ -24,18 +24,9 @@
             <div class="col-md-5 col-sm-12 border-bottom position-relative">
                 <p><strong>{{ post.author }}</strong> {{ post.created_on }}</p>
                 <p>{{ post.body }}</p>
+                <a class="stretched-link" href="{% url 'post-detail' post.pk %}"></a>
             </div>
         </div>
         {% endfor %}
-        {%else%}
-            {% for post in post_list %}
-        <div class="row justify-content-center mt-3">
-            <div class="col-md-5 col-sm-12 border-bottom position-relative">
-                <p><strong>{{ post.author }}</strong> {{ post.created_on }}</p>
-                <p>{{ post.body }}</p>
-            </div>
-        </div>
-        {% endfor %}
-        {% endif %}
     </div>
-{% endblock content %}{% load crispy_forms_tags %}
+{% endblock content %}
