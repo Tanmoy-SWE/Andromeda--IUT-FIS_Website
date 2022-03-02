@@ -1,3 +1,41 @@
+<html>
+    {% load static %}
+<head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700">
+    <link rel="stylesheet" href="{% static 'home.css'%}">
+</head>
+<body>
+    <nav>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="\">Andromeda</a>
+          </li>
+         {% if user.is_authenticated %}
+         <li class="nav-item">
+            <a href="/social/">Discussion</a>
+        </li>
+          {% endif %}
+          <li class="nav-item">
+            <a href="#">Quiz</a>
+          </li>
+          <li class="nav-item">
+            <a href="/index">Simulation</a>
+          </li>
+          <li class="nav-item">
+            <a href="/news">News</a>
+          </li>
+          
+          {% if user.is_authenticated %}
+          <li class="nav-item">
+            <button class="btn-primary"><a href="/logout">Log Out</a></button>
+          </li>
+          {%else%}
+          <li class="nav-item">
+            <button class="btn-primary"><a href="/login">Sign In</a></button>
+          </li>
+          {% endif %}
+        </ul>
+      </nav>
 <h1>Date of Release: {{Date_of_release}}</h1>
 <br>
 <h1>Image Owner : {{image_owner}}</h1>
@@ -8,3 +46,4 @@
 <br>
 <img src='{{img_url}}'>
 <br>
+</html>

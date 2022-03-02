@@ -1,8 +1,24 @@
+
+
 {% extends 'social/base.html' %}
 {% load crispy_forms_tags %}
+<head>
+    <style>
+        .posts{
+            border-width:2px;
+            border-style:solid;
+            border-color:black;
+        }
+    </style>
 
+</head>
+
+<body>
 {% block content %}
     <div class="container">
+        <div class="col-md-3 col-sm-6">
+            <a href="\" class="btn btn-light" style="margin: 20px;">Back to Home</a>
+        </div>
         <div class="row justify-content-center mt-3">
             <div class="col-md-5 col-sm-12">
                 <h5>Add a Post!</h5>
@@ -20,12 +36,13 @@
             </div>
         </div>
         {% for post in post_list %}
+        <div class="posts">
         <div class="row justify-content-center mt-3">
             <div class="col-md-5 col-sm-12 border-bottom position-relative">
                 <p><strong>{{ post.author }}</strong> {{ post.created_on }}</p>
                 <p>{{ post.body }}</p>
                 {% if post.image %}
-                    <img src="{{ post.image.url }}" class= "post-image"/>
+                    <img src="{{ post.image.url }}" class= "post-image" width="300px" height="300px"/>
                 {% endif %}
                 <a class="stretched-link" href="{% url 'post-detail' post.pk %}"></a>
                 <div class="d-flex flex-row">
@@ -47,6 +64,8 @@
                  </div>
             </div>
         </div>
+        </div>
         {% endfor %}
     </div>
 {% endblock content %}
+</body>

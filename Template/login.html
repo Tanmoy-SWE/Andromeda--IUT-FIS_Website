@@ -1,26 +1,100 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Home</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700">
+    <link rel="stylesheet" href="{% static 'home.css'%}">
+    <style>
+        .signin{
+            margin: 50px;
+            text-align: center;
+            
+            color: white;
+            padding: 50px;
+            border-radius: 2%;
+            background-image: url("{% static 'solar.jpeg'%}");
+            background-size: cover;
+
+        }
+        label, input {
+            width: 50%;
+            font-size: 20px;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            margin: 30px;
+        }
+
+        .login{
+          background-color: rgb(6, 170, 61);
+          text-decoration: none;
+          font-size: 30px;
+          border: none;
+          padding: 20px;
+          margin-top: 20px;
+          border-radius: 20%;
+          cursor: pointer;
+        }
+
+        .login:hover{
+          color:white;
+          transition: 0.2s;
+        }
+    </style>
 </head>
 <body>
-    {% for message in messages %}
-        <p id="messages"> {{message}}</p>
+    <body>
+        <nav>
+            <ul class="nav-list">
+              <li class="nav-item">
+                <a href="\">Andromeda</a>
+              </li>
+             {% if user.is_authenticated %}
+             <li class="nav-item">
+                <a href="/social/">Discussion</a>
+            </li>
+              {% endif %}
+              <li class="nav-item">
+                <a href="#">Quiz</a>
+              </li>
+              <li class="nav-item">
+                <a href="/index">Simulation</a>
+              </li>
+              <li class="nav-item">
+                <a href="/news">News</a>
+              </li>
+              
+              {% if user.is_authenticated %}
+              <li class="nav-item">
+                <button class="btn-primary"><a href="/logout">Log Out</a></button>
+              </li>
+              {%else%}
+              <li class="nav-item">
+                <button class="btn-primary"><a href="/login">Sign In</a></button>
+              </li>
+              {% endif %}
+            </ul>
+          </nav>
+    
+    <div class="signin">
+      {% for message in messages %}
+        <p style="text-align: center; margin-top: 40px;"><strong> {{message}}</strong></p>
     {% endfor %}
-    <button type="submit"> <a href="/">Home</a></button>
-    <button type="submit"> <a href="/register">SignUp</a></button>
-     <h3>Sign In</h3>
+     <h3 style="font-size: 60px;">Sign In</h3>
     <form action="/login/" method="POST">
         {% csrf_token %}
         <label for="">Username</label>
         <input type = "text" id = "username" name ="username" placeholder="Enter Your Username : " Required>
         <br>
         <label for="">Password</label>
-        <input type = "text" id = "password" name = "password" placeholder="Enter your Password : " Required>
+        <input type = "password" id = "password" name = "password" placeholder="Enter your Password : " Required>
         <br>
-        <button type="submit">Log In</button>
+        <button class = "login" type="submit">Log In</button>
     </form>
+    <p style="margin-top: 30px;">Do not have an account? <a href="/register" style="color: white;"> Sign Up</a></p>
+</div>
 <script src = "" async defer></script>
 </body>
 </html>

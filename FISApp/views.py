@@ -40,3 +40,6 @@ def logoutUser(request):
 
 def solarsystem(request):
     return render(request, 'index.html')
+
+def news(request):
+    return render(request, 'News.html')

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>News</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="{% static 'News.css'%}">
+  <link rel="stylesheet" href="{% static 'Home.css'%}">
+
+
+</head>
+<body>
+  <nav>
+    <ul class="nav-list">
+      <li class="nav-item">
+        <a href="\">Andromeda</a>
+      </li>
+     {% if user.is_authenticated %}
+     <li class="nav-item">
+        <a href="/social/">Discussion</a>
+    </li>
+      {% endif %}
+      <li class="nav-item">
+        <a href="#">Quiz</a>
+      </li>
+      <li class="nav-item">
+        <a href="/index">Simulation</a>
+      </li>
+      <li class="nav-item">
+        <a href="/news">News</a>
+      </li>
+      
+      {% if user.is_authenticated %}
+      <li class="nav-item">
+        <button class="btn-primary"><a href="/logout">Log Out</a></button>
+      </li>
+      {%else%}
+      <li class="nav-item">
+        <button class="btn-primary"><a href="/login">Sign In</a></button>
+      </li>
+      {% endif %}
+    </ul>
+  </nav>
+<!-- partial:index.partial.html -->
+<main class="page-content">
+  <div class="card">
+    <div class="content">
+      <h2 class="title">ISS Location</h2>
+      <p class="copy">Check out the position of the ISS of today</p>
+      <button class="btn"><a href="/ISSLocation">See Now</a></button>
+    </div>
+  </div>
+  <div class="card">
+    <div class="content">
+      <h2 class="title">Astronomy Photo Of The Day</h2>
+      <p class="copy">Check out today's best photo of space</p>
+      <button class="btn"><a href="/astroPhotoDay">See Now</a></button>
+    </div>
+  </div>
+  <div class="card">
+    <div class="content">
+      <h2 class="title">Astronomy Photo Of Yesterday</h2>
+      <p class="copy">Check out the best photo of yesterday incase if you have missed it</p>
+      <button class="btn"><a href="/astroPhotoYesterday">See Now</a></button>
+    </div>
+  </div>
+  <div class="card">
+    <div class="content">
+      <h2 class="title">Photos From Mars</h2>
+      <p class="copy">See the photos of Mars of last 7 days</p>
+      <button class="btn"><a href="/marsPhotos">See Now</a></button>
+    </div>
+  </div>
+</main>
+<!-- partial -->
+  
+</body>
+</html>

@@ -1,38 +1,74 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Home</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700">
+    <link rel="stylesheet" href="{% static 'home.css'%}">
+    <style>
+        .homepageheader{
+            text-align: center;
+            font-size: 70px;
+        }
+        
+        a{
+            font-size: 30px;
+        }
+    
+       
+    </style>
 </head>
 <body>
+    <nav>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="\">Andromeda</a>
+          </li>
+         {% if user.is_authenticated %}
+         <li class="nav-item">
+            <a href="/social/">Discussion</a>
+        </li>
+          {% endif %}
+          <li class="nav-item">
+            <a href="#">Quiz</a>
+          </li>
+          <li class="nav-item">
+            <a href="/index">Simulation</a>
+          </li>
+          <li class="nav-item">
+            <a href="/news">News</a>
+          </li>
+          
+          {% if user.is_authenticated %}
+          <li class="nav-item">
+            <button class="btn-primary"><a href="/logout">Log Out</a></button>
+          </li>
+          {%else%}
+          <li class="nav-item">
+            <button class="btn-primary"><a href="/login">Sign In</a></button>
+          </li>
+          {% endif %}
+        </ul>
+      </nav>
+    <div class="background">
     {% for message in messages %}
     <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
         <strong>Message:</strong>{{message}}
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden>&times;</span>
          </button>
+
     </div>
     {% endfor %}
-     <h3>HOME</h3>
-     <button type="submit"> <a href='/index'>hello</a></button>
-     {% if user.is_authenticated %}
-         <h3 id="hello-msg"> Hello {{request.user}} </h3>
-         <h4> You are successfully logged in.</h4>
-         <button type="submit"> <a href="/logout">SignOut</a></button>
-         <button type="submit"> <a href="/social">News Feed</a></button>
-         <button type="submit"> <a href="/ISSLocation">ISS Current Location</a></button>
-         <button type="submit"> <a href="/astroPhotoDay">Astronomy Photo of the day</a></button>
-         <button type="submit"> <a href="/astroPhotoYesterday">Astronomy Photo of Yesterday</a></button>
-         <button type="submit"> <a href="/marsPhotos">Mars Photos of last 7 days</a></button>
-    {%else%}
-        <button type="submit"> <a href="/register">SignUp</a></button>
-        <button type="submit"> <a href="/login">SignIn</a></button>
-        <button type="submit"> <a href="/social">News Feed</a></button>
-        <button type="submit"> <a href="/ISSLocation">ISS Current Location</a></button>
-        <button type="submit"> <a href="/astroPhotoDay">Astronomy Photo of the day</a></button>
-        <button type="submit"> <a href="/astroPhotoYesterday">Astronomy Photo of Yesterday</a></button>
-        <button type="submit"> <a href="/marsPhotos">Mars Photos of last 7 days</a></button>
-    {% endif %}
+    <div style="height: 100%;">
+    <img src="https://ak.picdn.net/shutterstock/videos/1011964136/thumb/1.jpg" alt="picture" width="100%" height="100%">
+     <h3 class="homepageheader">Welcome to IUT-FIS, {{request.user}}</h3>
+     </div>
+     
+    
     <script src = "" async defer></script>
+</div>
 </body>
 </html>

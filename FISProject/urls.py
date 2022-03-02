@@ -20,4 +20,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('FISApp.urls')),
     path('social/', include('Media_Functionalities.urls')),
+    path('member/', include('Member_Management.urls')),
 ]

@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     #own
     'FISApp.apps.FisappConfig',
     'Media_Functionalities',
+    'Member_Management',
     'crispy_forms',
 ]
 

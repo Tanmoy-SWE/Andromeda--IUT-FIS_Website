@@ -13,4 +13,5 @@ urlpatterns = [
     path('astroPhotoYesterday/', astroPhotoDay.astroPhotoOfYesterday, name='astroPhotoOfYesterday'),
     path('marsPhotos/', marsPhotos.marsPhotos, name='marsPhotos'),
     path('index/', views.solarsystem, name='index'),
+    path('news/', views.news, name='news')
 ]

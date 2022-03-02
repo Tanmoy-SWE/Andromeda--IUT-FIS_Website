@@ -3,6 +3,7 @@
 
 <html lang="en">
   <head>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge;chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable = no">
@@ -11,10 +12,16 @@
     <title dir="ltr">3D Solar System</title>
     <link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/styles.css'%}">
   </head>
+  <body>
   <body class="opening hide-UI view-2D zoom-large data-close controls-close">
+    
     <div id="navbar">
+      
       <a id="toggle-data" href="#data"><i class="icon-data"></i>Data</a>
       <h1>Solar System</h1>
+      <h1>by Team Andromeda</h1>
+      
+      
       <a id="toggle-controls" href="#controls"><i class="icon-controls"></i>Controls</a>
     </div>
     <div id="data">
@@ -27,6 +34,7 @@
       <a class="saturn" title="saturn" href="#saturnspeed">Saturn</a>
       <a class="uranus" title="uranus" href="#uranusspeed">Uranus</a>
       <a class="neptune" title="neptune" href="#neptunespeed">Neptune</a>
+      
     </div>
     <div id="controls">
       <label class="set-view">
@@ -154,7 +162,9 @@
     </script>
     <script src="{% static 'js/prefixfree.min.js' %}"></script>
     <script src="{% static 'js/scripts.min.js' %}"></script>
+    
   </body>
+  
   
 </html>
 <!-- 
