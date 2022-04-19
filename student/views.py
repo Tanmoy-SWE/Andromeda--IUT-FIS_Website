@@ -1,3 +1,4 @@
+from django.forms import ImageField
 from django.shortcuts import render,redirect,reverse
 from . import forms,models
 from django.db.models import Sum
@@ -8,6 +9,7 @@ from django.conf import settings
 from datetime import date, timedelta
 from quiz import models as QMODEL
 from teacher import models as TMODEL
+from django.views.decorators.csrf import csrf_exempt
 
 
 #for showing signup/login button for student
@@ -80,27 +82,30 @@ def start_exam_view(request,pk):
 
 @login_required(login_url='studentlogin')
 @user_passes_test(is_student)
+@csrf_exempt
 def calculate_marks_view(request):
     if request.COOKIES.get('course_id') is not None:
         course_id = request.COOKIES.get('course_id')
         course=QMODEL.Course.objects.get(id=course_id)
         
         total_marks=0
+        marks = 0
         questions=QMODEL.Question.objects.all().filter(course=course)
         for i in range(len(questions)):
             
             selected_ans = request.COOKIES.get(str(i+1))
             actual_answer = questions[i].answer
             if selected_ans == actual_answer:
-                total_marks = total_marks + questions[i].marks
+                marks = marks + questions[i].marks
+            total_marks = total_marks + questions[i].marks
         student = models.Student.objects.get(user_id=request.user.id)
         result = QMODEL.Result()
-        result.marks=total_marks
+        result.marks=marks
         result.exam=course
         result.student=student
         result.save()
 
-        return HttpResponseRedirect('view-result')
+        return render (request,'student/abc.html', {'result':result.marks, 'total_marks':total_marks})
 
 
 

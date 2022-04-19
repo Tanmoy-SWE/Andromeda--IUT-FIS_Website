@@ -1,6 +1,9 @@
 from django.urls import path
 from . import views
 from .AstroInfo import issLocation, astroPhotoDay, marsPhotos
+from django.conf.urls.static import static
+from django.conf import settings 
+
 
 
 urlpatterns = [
@@ -15,3 +18,5 @@ urlpatterns = [
     path('index/', views.solarsystem, name='index'),
     path('news/', views.news, name='news')
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

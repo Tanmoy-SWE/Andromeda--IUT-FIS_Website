@@ -17,7 +17,7 @@ import os
 
 
 # STATIC_DIR=os.path.join(BASE_DIR,'static')
-# MEDIA_ROOT=os.path.join(BASE_DIR,'static')
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
@@ -78,6 +78,8 @@ TEMPLATES = [
         [
             os.path.join(BASE_DIR, 'Template'),
             os.path.join(BASE_DIR, 'Template/js'),
+
+
             os.path.join(BASE_DIR,'templates'),
         ],
         'APP_DIRS': True,
@@ -163,7 +165,8 @@ EMAIL_HOST_PASSWORD = 'xyz' # host email password required
 # this process is required because google blocks apps authentication by default
 EMAIL_RECEIVING_USER = ['to@gmail.com'] # email on which you will receive messages sent from website
 
-
+MEDIA_URL = '/image/'
+MEDIA_ROOT=os.path.join(BASE_DIR,'static')
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
