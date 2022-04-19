@@ -20,7 +20,7 @@
             <p>{{ post.body }}</p>
         </div>
         {% if post.image %}
-                    <img src="{{ post.image.url }}" class= "post-image"/>
+                    <img src="{{ post.image.url }}" class= "post-image" height="500" width="500" />
         {% endif %}
     </div>
     <div class="d-flex flex-row justify-content-center mt-3">
@@ -32,13 +32,13 @@
             </button>
         </form>
 
-        <form method="POST" action="{% url 'dislike' post.pk %}">
+        <!-- <form method="POST" action="{% url 'dislike' post.pk %}">
             {% csrf_token %}
             <input type="hidden" name="next" value="{{ request.path }}">
             <button style="background-color: transparent; border: none; box-shadow: none;" type="submit">
                 <i class="far fa-thumbs-down"> <span>{{ post.dislikes.all.count }}</span></i>
             </button>
-        </form>
+        </form> -->
      </div>
     <div class="row justify-content-center mt-3">
         <div class="col-md-5 col-sm-12">
