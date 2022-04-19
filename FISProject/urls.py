@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from quiz import views
 from django.contrib.auth.views import LogoutView,LoginView
-
+import store
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,6 +27,7 @@ urlpatterns = [
 
     path('teacher/',include('teacher.urls')),
     path('student/',include('student.urls')),
+
     
 
 
@@ -69,5 +70,9 @@ urlpatterns = [
     path('view-question/<int:pk>', views.view_question_view,name='view-question'),
     path('delete-question/<int:pk>', views.delete_question_view,name='delete-question'),
 
+    #marketplace
+    path('marketplace/', include('store.urls')),
+    path('update_item/', store.views.updateItem, name='update_item'),
+    path('process_order/', store.views.processOrder, name='process_order'),
 
 ]

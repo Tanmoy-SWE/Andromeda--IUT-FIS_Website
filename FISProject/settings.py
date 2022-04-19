@@ -57,6 +57,7 @@ INSTALLED_APPS = [
     'teacher',
     'student',
     'widget_tweaks',
+    'store.apps.StoreConfig'
 ]
 
 MIDDLEWARE = [
@@ -167,6 +168,8 @@ EMAIL_RECEIVING_USER = ['to@gmail.com'] # email on which you will receive messag
 
 MEDIA_URL = '/image/'
 MEDIA_ROOT=os.path.join(BASE_DIR,'static')
+
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
