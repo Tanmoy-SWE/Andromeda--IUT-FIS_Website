@@ -10,10 +10,12 @@
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
   <title>IUT-FIS member management</title>
   <style>
-    .body{
+    .body {
       font-size: 100%;
       font-size: 16px;
       line-height: 1.5;
@@ -22,38 +24,60 @@
       -moz-osx-font-smoothing: grayscale;
       /* background-color: aqua; */
     }
-    .site-container{
+
+    .site-container {
       margin: 2rem auto;
       max-width: calc(100% - 80px);
     }
-    .article-container{
+
+    .article-container {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(265px, ifr));
       gap: 2rem;
+      width: 50%;
+      margin: 0 auto;
+      text-align: center;
     }
-    .article-image{
+
+    .article-image {
       margin: 0;
       padding: 0;
       overflow: hidden;
     }
-    .article-image img{
-      max-width: 19%;
+
+    .article-image img {
+      max-width: 40%;
       height: auto;
       border-radius: 20px 20px 0 0;
+
     }
-    .article-card{
-      background: white;
+
+    .article-card {
+      background: aquamarine;
       border-radius: 20px;
       transition: 0.3s;
     }
-    .article-card:hover{
+
+    .article-card:hover {
       box-shadow: 0 4px 20px 0 rgba(34, 68, 123, 0.2);
       cursor: pointer;
     }
-    .article-content{
+
+    .article-content {
       padding: 2rem;
     }
-    .article-content .card-category{
+
+    /* .card{
+      margin: 10px;
+      border-radius: 20px;
+    }
+
+    .card:hover{
+      box-shadow: 0 4px 20px 0 rgba(34, 68, 123, 0.2);
+      cursor: pointer;
+    } */
+
+    .article-content .card-category {
       font-size: 0.875rem;
       text-transform: uppercase;
       letter-spacing: 0.1rem;
@@ -62,27 +86,32 @@
       display: block;
       text-decoration: none;
     }
-    .article-content .card-title{
-      margin: 1rem  0;
+
+    .article-content .card-title {
+      margin: 1rem 0;
       color: #22447b;
     }
-    .article-container .card-excerpt{
+
+    .article-container .card-excerpt {
       font-size: 1rem;
       line-height: 1.5rem;
       color: #6b82a7;
       margin: 0;
     }
+
     @media screen and (min-width: 768px) {
-      .site-container{
+      .site-container {
         max-width: 608px;
       }
-      .article-card{
+
+      .article-card {
         display: grid;
         grid-template-rows: 220px 1fr;
       }
     }
+
     @media screen and (min-width: 1280px) {
-      .site-container{
+      .site-container {
         max-width: 1156px;
       }
     }
@@ -94,8 +123,7 @@
     <div class="article-container">
       <article class="article-card">
         <figure class="article-image">
-          <img src="{%static 'image/Add-Member.png'%}"
-            alt="show add member logo" />
+          <img src="{%static 'image/Add-Member.png'%}" alt="show add member logo" />
         </figure>
         <div class="article-content">
           <a class="card-category" href="member/add_member" role="button">Add</a>
@@ -105,8 +133,7 @@
       </article>
       <article class="article-card">
         <figure class="article-image">
-          <img src="{%static 'image/remove.png'%}"
-            alt="show add member logo" />
+          <img src="{%static 'image/remove.png'%}" alt="show add member logo" />
         </figure>
         <div class="article-content">
           <a class="card-category" href="member/remove_member" role="button">Remove</a>
@@ -116,8 +143,7 @@
       </article>
       <article class="article-card">
         <figure class="article-image">
-          <img src="{%static 'image/view.png'%}"
-            alt="show add member logo" />
+          <img src="{%static 'image/view.png'%}" alt="show add member logo" />
         </figure>
         <div class="article-content">
           <a class="card-category" href="member/view_all_member" role="button">View</a>
@@ -127,8 +153,7 @@
       </article>
       <article class="article-card">
         <figure class="article-image">
-          <img src="{%static 'image/search.png'%}"
-            alt="show add member logo" />
+          <img src="{%static 'image/search.png'%}" alt="show add member logo" />
         </figure>
         <div class="article-content">
           <a class="card-category" href="member/filter_member" role="button">Filter</a>
@@ -141,9 +166,43 @@
     <hr> -->
 
 
-    
 
-  </div>
+
+  <!-- </div>
+  <div class="card-group" style="border-radius: 50px;">
+    <div class="card" style="border-radius: 50;">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        <p class="card-text"><small class="text-muted"><a class="card-category" href="member/view_all_member" role="button">View</a></small></p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      </div>
+    </div>
+  </div> -->
   <!-- Optional JavaScript; choose one of the two! -->
 
   <!-- Option 1: Bootstrap Bundle with Popper -->
