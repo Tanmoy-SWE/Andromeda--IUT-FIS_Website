@@ -57,7 +57,8 @@ INSTALLED_APPS = [
     'teacher',
     'student',
     'widget_tweaks',
-    'store.apps.StoreConfig'
+    'store.apps.StoreConfig',
+    
 ]
 
 MIDDLEWARE = [

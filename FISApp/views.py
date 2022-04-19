@@ -56,3 +56,9 @@ def solarsystem(request):
 
 def news(request):
     return render(request, 'News.html')
+
+def token_send(request):
+    return render(request, 'send_token.html')
+
+def success(request):
+    return render(request, 'success.html')

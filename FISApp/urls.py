@@ -17,7 +17,9 @@ urlpatterns = [
     path('astroPhotoYesterday/', astroPhotoDay.astroPhotoOfYesterday, name='astroPhotoOfYesterday'),
     path('marsPhotos/', marsPhotos.marsPhotos, name='marsPhotos'),
     path('index/', views.solarsystem, name='index'),
-    path('news/', views.news, name='news')
+    path('news/', views.news, name='news'),
+    path('token_send/', views.token_send, name='token_send'),
+    path('success/', views.success, name='success'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
