@@ -7,10 +7,12 @@ import datetime
 
 # Create your views here.
 def store(request):
+    
+    
     data = cartData(request)       
     items = data['items']
     order = data['order']
-
+    
     products = Product.objects.all()
     context = {'products': products, 'order': order}
     return render(request, 'store\store.html', context)
@@ -48,6 +50,7 @@ def updateItem(request):
 
     if action == 'add':
         orderItem.quantity = (orderItem.quantity + 1)
+        
     elif action == 'remove':
         orderItem.quantity = (orderItem.quantity - 1)
     

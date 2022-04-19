@@ -28,6 +28,7 @@ function addCookieItem(productId, action){
             else{
                 cart[productId]['quantity'] += 1
             }
+           
         }
     
 
@@ -40,6 +41,7 @@ function addCookieItem(productId, action){
                 }
             }
 
+            alert("Item updated!")
             document.cookie ='cart=' + JSON.stringify(cart) + ";domain=;path=/"
             location.reload()
 }
@@ -49,6 +51,7 @@ function addCookieItem(productId, action){
 
 function updateUserOrder(productId, action){
     console.log('User logged in.')
+    alert("Item updated")
 
     var url = '/update_item/'
 

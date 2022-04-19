@@ -4,6 +4,7 @@ from .forms import CreateUserForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import user_passes_test
+from store.models import *
 
 def check_admin(user):
    return user.is_superuser
@@ -22,8 +23,10 @@ def registerPage(request):
         form = CreateUserForm(request.POST)
         if form.is_valid():
             form.save()
-            user = form.cleaned_data.get('username')
-            messages.success(request, "Account is created successfully for "+user)
+            user1 = form.cleaned_data.get('username')
+          #  physics = Customer(user=user2, name= '', email='user.email')
+          #  physics.save()
+            messages.success(request, "Account is created successfully for "+user1)
             return redirect('login')
     context = {'form': form }
     return render(request, 'register.html', context)
@@ -32,7 +35,10 @@ def loginPage(request):
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
+
         user = authenticate(request, username=username, password = password)
+        # physics = Customer(user=username, name="", email=user.email)
+        # physics.save()
         if user is not None:
             login(request, user)
             return redirect('home')
