@@ -9,9 +9,10 @@ import datetime
 def store(request):
     data = cartData(request)       
     items = data['items']
+    order = data['order']
 
     products = Product.objects.all()
-    context = {'products': products}
+    context = {'products': products, 'order': order}
     return render(request, 'store\store.html', context)
 
 def cart(request):

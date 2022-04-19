@@ -9,6 +9,9 @@
 
     <link rel="stylesheet" type="text/css" href="{% static 'css/store.css'%}">
 
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700">
+  	<link rel="stylesheet" href="{% static 'home.css'%}">
+
     <script type="text/javascript">
         var user = '{{request.user}}'
 
@@ -60,7 +63,7 @@
     </script>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <a class="navbar-brand" href="/">Andromeda</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -82,7 +85,62 @@
               
           </div>
         </div>
-      </nav>
+      </nav> -->
+
+	  <nav>
+		<ul class="nav-list">
+		  <li class="nav-item">
+			<a href="\">Andromeda</a>
+		  </li>
+		  {%if user.is_superuser %}
+		  <li class="nav-item">
+			<a href="/member/">Member</a>
+		  </li>
+		  
+		  <li class="nav-item">
+			<a href="/admin/">Panel</a>
+		  </li>
+		  {%else%}
+		  {% if user.is_authenticated %}
+		  <li class="nav-item">
+			<a href="/social/">Discussion</a>
+		  </li>
+		  {%endif%}
+		  <li class="nav-item">
+			<a href="/marketplace">Marketplace</a>
+		  </li>
+		  <li class="nav-item">
+			<a href="/quiz">Quiz</a>
+		  </li>
+		  <li class="nav-item">
+			<a href="/index">Simulation</a>
+		  </li>
+		  <li class="nav-item">
+			<a href="/news">News</a>
+		  </li>
+		  <li class="nav-item">
+			<a href = "" style="font-size: 20px;">Tk.{{order.get_cart_total|floatformat:2}}</a>
+		  </li>
+		  <li class="nav-item">
+			<a href="/marketplace/cart"><img  id="cart-icon" src="{% static 'image/cart2.png' %}"></a>
+		  </li>
+		  {%endif%}
+		  
+		  
+		  
+		  
+	
+		  {% if user.is_authenticated %}
+		  <li class="nav-item">
+			<button class="btn-primary"><a href="/logout">Log Out</a></button>
+		  </li>
+		  {%else%}
+		  <li class="nav-item">
+			<button class="btn-primary"><a href="/login">Sign In</a></button>
+		  </li>
+		  {% endif %}
+		</ul>
+	  </nav>
 
     <div class="container">
         {% block content %}

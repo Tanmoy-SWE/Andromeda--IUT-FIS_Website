@@ -57,37 +57,55 @@
     </style>
 </head>
 <body>
-    <nav>
-        <ul class="nav-list">
-          <li class="nav-item">
-            <a href="\">Andromeda</a>
-          </li>
-         {% if user.is_authenticated %}
-         <li class="nav-item">
-            <a href="/social/">Discussion</a>
-        </li>
-          {% endif %}
-          <li class="nav-item">
-            <a href="#">Quiz</a>
-          </li>
-          <li class="nav-item">
-            <a href="/index">Simulation</a>
-          </li>
-          <li class="nav-item">
-            <a href="/news">News</a>
-          </li>
-          
-          {% if user.is_authenticated %}
-          <li class="nav-item">
-            <button class="btn-primary"><a href="/logout">Log Out</a></button>
-          </li>
-          {%else%}
-          <li class="nav-item">
-            <button class="btn-primary"><a href="/login">Sign In</a></button>
-          </li>
-          {% endif %}
-        </ul>
-      </nav>
+  <nav>
+		<ul class="nav-list">
+		  <li class="nav-item">
+			<a href="\">Andromeda</a>
+		  </li>
+		  {%if user.is_superuser %}
+		  <li class="nav-item">
+			<a href="/member/">Member</a>
+		  </li>
+		  
+		  <li class="nav-item">
+			<a href="/admin/">Panel</a>
+		  </li>
+		  {%else%}
+		  {% if user.is_authenticated %}
+		  <li class="nav-item">
+			<a href="/social/">Discussion</a>
+		  </li>
+		  {%endif%}
+		  <li class="nav-item">
+			<a href="/marketplace">Marketplace</a>
+		  </li>
+		  <li class="nav-item">
+			<a href="/quiz">Quiz</a>
+		  </li>
+		  <li class="nav-item">
+			<a href="/index">Simulation</a>
+		  </li>
+		  <li class="nav-item">
+			<a href="/news">News</a>
+		  </li>
+		  
+		  {%endif%}
+		  
+		  
+		  
+		  
+	
+		  {% if user.is_authenticated %}
+		  <li class="nav-item">
+			<button class="btn-primary"><a href="/logout">Log Out</a></button>
+		  </li>
+		  {%else%}
+		  <li class="nav-item">
+			<button class="btn-primary"><a href="/login">Sign In</a></button>
+		  </li>
+		  {% endif %}
+		</ul>
+	  </nav>
 <div class="signin">     
 <h1 style="font-size: 60px;">Register</h1>
 
