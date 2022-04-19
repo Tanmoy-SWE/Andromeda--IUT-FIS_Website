@@ -12,12 +12,12 @@
             text-align: center;
             font-size: 70px;
         }
-        
+
         a{
             font-size: 30px;
         }
-    
-       
+
+
     </style>
 </head>
 <body>
@@ -30,11 +30,9 @@
          <li class="nav-item">
             <a href="/social/">Discussion</a>
         </li>
-             {% if user.is_superuser %}<li class="nav-item">
+            <li class="nav-item">
             <a href="/member/">Member</a>
         </li>
-         {%endif%}
-
           {% endif %}
           <li class="nav-item">
             <a href="/index">Simulation</a>
@@ -43,7 +41,7 @@
             <a href="/news">News</a>
           </li>
 
-          
+
           {% if user.is_authenticated %}
           <li class="nav-item">
             <button class="btn-primary"><a href="/logout">Log Out</a></button>
@@ -69,8 +67,8 @@
     <img src="https://ak.picdn.net/shutterstock/videos/1011964136/thumb/1.jpg" alt="picture" width="100%" height="100%">
      <h3 class="homepageheader">Welcome to IUT-FIS, {{request.user}}</h3>
      </div>
-     
-    
+
+
     <script src = "" async defer></script>
 </div>
 </body>

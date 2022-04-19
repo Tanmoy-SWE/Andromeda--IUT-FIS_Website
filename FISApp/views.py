@@ -3,7 +3,14 @@ from django.contrib.auth.forms import UserCreationForm
 from .forms import CreateUserForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import user_passes_test
 
+def check_admin(user):
+   return user.is_superuser
+
+@user_passes_test(check_admin)
+def homeAdmin(request):
+    return render(request, 'homeAdmin.html')
 
 # Create your views here.
 def home(request):
