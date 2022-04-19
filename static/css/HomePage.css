@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Akshar:wght@300&family=Montserrat:wght@100&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+li,a{
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 25px;
+  color: #edf0f1;
+  /* background-color: #242524; */
+}
+button{
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 25px;
+  color: #edf0f1;
+  /* background-color: #242524; */
+}
+header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 10%;
+  
+}
+.nav__links{
+  list-style: none;
+}
+.nav__links li{
+  display: inline-block;
+  padding: 0px 20px;
+}
+.nav__links li a{
+  transition: all 0.3s ease 0s;
+}
+.nav__links li a:hover{
+  color: #0088a9;
+}
+button{
+  padding: 9px 25px;
+  background-color: rgba(0, 136, 169, 1);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+}
+button:hover{
+  background-color: rgba(0, 136, 169, 0.8);
+}
+
+body {
+  font-family: "Segoe UI", sans-serif;
+  background: url(bg.png) no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.container img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  object-fit: contain;
+}
+
+.container h2 {
+  z-index: 1;
+  position: relative;
+  color: #fff;
+  font-size: 90px;
+  text-transform: uppercase;
+  font-weight: 900;
+  letter-spacing: 32px;
+  line-height: 60px;
+}
+
+.container h2 span {
+  font-size: 48px;
+  font-weight: 500;
+  letter-spacing: 10px;
+}
+
+@media (max-width:800px) {
+  .container h2 {
+    font-size: 60px;
+    letter-spacing: 19px;
+    line-height: 35px;
+  }
+
+  .container h2 span {
+    font-size: 26px;
+  }
+}
+
+.Quotes{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 10vh;
+  width: 100vw;
+}
+span{
+  font-size: 2em;
+}
+.animation{
+  text-align: center;
+  text-transform: uppercase;
+  font-family: 'Segoe UI' , sans-serif;
+  font-size: 17px;
+  letter-spacing: 1px;
+  color: black;
+  display: inline-block;
+  animation: fadeIn 1.5s forwards;
+  opacity: 0;
+  transition-timing-function: cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  background: #222;
+  z-index: 1;
+  position: relative;
+}
+.slide{
+  display: inline-flex;
+  overflow: hidden;
+}
+.second{
+  font-weight: 100;
+  z-index: -1;
+  display: inline-block;
+  animation: secondspan 1.5s forwards cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
+@keyframes fadeIn{
+  0%{
+    opacity: 0;
+    transition-timing-function: scale(1);
+  }
+  50%{
+    opacity: 0;
+    transition-timing-function: scale(1);
+  }
+  100%{
+    opacity: 1;
+    transition-timing-function: scale(1);
+  }
+}
+
+@keyframes firstspan{
+  0%{
+    transform: translateX(-100%);
+  }
+  60%{
+    transform: translateX(-100%);
+  }
+  100%{
+    transform: translateX(0%);
+  }
+} 

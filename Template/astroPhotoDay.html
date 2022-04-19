@@ -1,4 +1,4 @@
-<html>
+<!-- <html>
     {% load static %}
 <head>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700">
@@ -49,4 +49,152 @@
 <img src='{{img_url}}' width="100%">
 <br>
 </div>
+</body> -->
+
+<html>
+{% load static %}
+
+<head>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700">
+  <link rel="stylesheet" href="{% static 'home.css'%}">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      font-family: "Open Sans", sans-serif;
+      box-sizing: border-box;
+    }
+
+    .photo-body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #f1f1f1;
+    }
+
+    .about-section {
+      background: url({{img_url}}) no-repeat left;
+      background-size: 55%;
+      background-color: #f1f1f1;
+      overflow: hidden;
+      padding: 100px 0;
+    }
+
+    .inner-container {
+      width: 55%;
+      float: right;
+      background-color: #fdfdfd;
+      padding: 150px;
+    }
+
+    .inner-container h1 {
+      margin-bottom: 30px;
+      font-size: 30px;
+      font-weight: 900;
+    }
+
+    .text {
+      font-size: 15px;
+      color: #545454;
+      line-height: 30px;
+      text-align: justify;
+      margin-bottom: 40px;
+    }
+
+    .details {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 700;
+      font-size: 13px;
+    }
+
+    @media screen and (max-width: 1200px) {
+      .inner-container {
+        padding: 80px;
+      }
+
+      @media screen and (max-width: 1000px) {
+        .about-section {
+          background-size: 100%;
+          padding: 100px 40px;
+        }
+
+        .inner-container {
+          width: 100%;
+        }
+      }
+
+      @media screen and (max-width: 600px) {
+        .about-section {
+          padding: 0;
+        }
+
+        .inner-container {
+          padding: 60px;
+        }
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <ul class="nav-list">
+      <li class="nav-item">
+        <a href="\">Andromeda</a>
+      </li>
+      {% if user.is_authenticated %}
+      <li class="nav-item">
+        <a href="/social">Discussion</a>
+      </li>
+      {% endif %}
+      <li class="nav-item">
+        <a href="#">Quiz</a>
+      </li>
+      <li class="nav-item">
+        <a href="/index">Simulation</a>
+      </li>
+      <li class="nav-item">
+        <a href="/news">News</a>
+      </li>
+
+      {% if user.is_authenticated %}
+      <li class="nav-item">
+        <button class="btn-primary"><a href="/logout">Log Out</a></button>
+      </li>
+      {%else%}
+      <li class="nav-item">
+        <button class="btn-primary"><a href="/login">Sign In</a></button>
+      </li>
+      {% endif %}
+    </ul>
+  </nav>
+  <!-- <div>
+<h1>Date of Release: {{Date_of_release}}</h1>
+<br>
+<h1>Image Owner : {{image_owner}}</h1>
+<br>
+<h1>Image Title : {{image_title}}</h1>
+<br>
+<h1>Image Description : {{img_description}}</h1>
+<br>
+<img src='{{img_url}}' width="100%">
+<br>
+</div> -->
+  <div class="photo-body">
+    <div class="about-section">
+      <div class="inner-container">
+        <h1>{{image_title}}</h1>
+        <p class="text">{{img_description}}</p>
+        <div class=" details">
+          <span>Image Taken By : {{image_owner}}</span>
+          <span>Date of the Photo Taken: {{Date_of_release}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
+
+</html>
