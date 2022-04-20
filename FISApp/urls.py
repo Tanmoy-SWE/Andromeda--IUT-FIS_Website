@@ -18,8 +18,10 @@ urlpatterns = [
     path('marsPhotos/', marsPhotos.marsPhotos, name='marsPhotos'),
     path('index/', views.solarsystem, name='index'),
     path('news/', views.news, name='news'),
-    path('token_send/', views.token_send, name='token_send'),
-    path('success/', views.success, name='success'),
+    path('token/' , views.token_send , name="token_send"),
+    path('success/' , views.success , name='success'),
+    path('verify/<auth_token>/' , views.verify , name="verify"),
+    path('error/' , views.error_page , name="error")
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
